@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="flip-btn">
+    <div class="front">front</div>
+    <div class="back">back</div>
+  </div>
+</div>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 최상단에 두기 -> 원근감주기 크면클수록 멀리본다*/
+  perspective: 1000px;
+}
+
+.flip-btn {
+  width: 200px;
+  height: 100px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+
+  /* flip-btn하위에 있는 태그들은 3d공간에 배치되게 된다. */
+  /* z축에 공간이 생긴다. */
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+.flip-btn:hover {
+  transform: rotateX(-90deg);
+}
+
+.front {
+  background-color: goldenrod;
+  height: 100px;
+
+  transform: translateZ(50px);
+}
+
+.back {
+  background-color: darkgoldenrod;
+  height: 100px;
+
+  /* translateZ() 함수는 3D 요소를 Z축 기준으로 이동하게 하는 함수 */
+  transform: rotateX(90deg) translateZ(150px);
+}
+</style>
+<small>출처 : https://www.youtube.com/watch?v=hFvPP53kldk</small>
